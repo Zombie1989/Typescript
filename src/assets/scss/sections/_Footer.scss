@@ -1,0 +1,26 @@
+footer {
+    
+    margin-top: 40px;
+    background-color: $color-grey-90;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+
+    .social-media {
+        margin-bottom: 25px;
+
+        a {
+            font-size: $font-size-20;
+            color: $color-dark-text;
+            margin-right: 8px;
+            margin-left: 8px;
+            transition: 100ms ease-in;
+
+            &:hover {
+                color: $color-red;
+            }
+        }
+    }
+}

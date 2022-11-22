@@ -1,0 +1,7 @@
+.bg-red {
+    background-color: $color-red;
+}
+.colorGradient {
+    background: rgb(230,230,230);
+    background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(244,244,244,1) 100%);
+}

@@ -1,0 +1,29 @@
+html, body {
+    position: relative;
+    min-height: 100vh;
+    font-size: $font-size-16;
+    line-height: 1.5;
+    font-family: $font-poppins;
+    font-weight: $font-weight-regular;
+    color: $color-dark-text;
+    text-decoration: none;
+}
+
+a {
+    color: $color-dark;
+    text-decoration: none;
+    
+    &:hover {
+        color: $color-red;
+    }
+}
+
+.border {
+    border: 1px solid $color-red !important;
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: $max-width;
+    }
+}

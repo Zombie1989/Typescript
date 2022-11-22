@@ -1,0 +1,177 @@
+.sale49 {
+    margin-top: 25px;
+    
+    .container {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    
+    .image {
+
+        position: relative;
+        display: none;
+
+        .image-text {
+            position: absolute;
+            left: 100;
+            right: 0; 
+            text-align: center;
+            top: 40%;
+
+            h1 {
+                color: white;
+            }
+
+            button {
+
+            }
+        }
+    }
+
+    .card {
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        
+        
+        .card-img {
+            height: 210px;
+            background-color: $color-grey-80;
+            position: relative;
+            overflow: hidden;
+            
+            img {
+                width: 100%;
+                height: 210px;
+                object-fit: cover;
+            }
+            .card-menu {
+                position: absolute;
+                list-style: none;
+                left: 85%;
+                transition: 200ms ease-in-out;
+                top: 10px;
+                
+                .menu-link {
+                    background-color: $color-white;
+                    color: $color-dark-text;
+                    border-radius: $border-radius-rounded;
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    border: none;
+
+                    &:hover {
+                        background-color: $color-red;
+                    }
+                }
+            }
+
+            .btn-card {
+                position: absolute;
+                background-color: $color-red;
+                color: $color-white;
+                font-size: $font-size-14;
+                text-align: center;
+                padding-top: 20px;
+                width: 100%;
+                height: 60px;
+                top: 150px;
+                transition: 200ms ease-in;
+                left: 0;
+
+                &:hover {
+                    background-color: $color-red-hover;
+                }
+            }
+            &:hover {
+                background-color: $color-grey-30;
+                transition: 200ms ease-in;
+            }
+        }
+
+        .card-body {
+            text-align: center;
+            padding-top: 6px;
+
+            .card-category {
+                color: $color-grey-20;
+                font-size: $font-size-13;
+                font-weight: $font-weight-medium;
+                margin: 0;
+
+            }
+            .card-title {
+                font-size: $font-size-16;
+                font-weight: $font-weight-semibold;
+                margin: 0.2rem;
+
+            }
+            .card-rating {
+                color: $color-red;
+            }
+            .prices {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-indent: 0.8rem;
+
+                .old-price {
+                    text-decoration: line-through;
+                    color: $color-grey-20;
+                    font-size: $font-size-16;
+                }
+                .regular-price {
+                    font-size: $font-size-18;
+                    font-weight: $font-weight-semibold;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .sale49 {       
+        .container {
+            max-width: 1110px;
+        }
+
+        .image {
+            display: block;
+            right: -15px;
+            width: 50%;
+            
+            img {
+                width: 815px;
+                height: 746px;
+            }
+        }
+
+        .card {
+            margin-top: 25px;
+            margin-right: 15px;
+            .card-img {
+                .card-menu {
+                    left: 100%;
+                }
+                .btn-card {
+                    top: 220px;
+                }
+            }
+            &:hover {
+                .card-menu {
+                    left: 85%;
+                }
+                .btn-card {
+                    top: 150px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+.header {
+    padding-top: 10px;
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "logo menuicons"
+                             "menulinks menulinks";
+    }
+    .header-logo {
+        grid-area: logo;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-35;
+    }
+
+    .header-menu {
+        grid-area: menulinks;
+        display: none;
+        font-weight: $font-weight-medium;
+        text-decoration: underline;
+
+
+        .header-link {            
+            color: $color-dark;
+            margin: 10px;
+            text-align: center;
+
+            &:hover {
+                color: $color-red;
+            }
+        }
+
+        .active {
+            color: $color-red;
+        }
+    }
+    
+    .menu-icons {
+        grid-area: menuicons;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+
+        .menu-icon {
+            background-color: $color-white;
+            width: 36px;
+            height: 36px;
+            margin-left: 20px;
+            border-radius: $border-radius-rounded;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 12px 3px $color-shadow;
+            position: relative;
+            transition: 100ms ease-in;
+                
+            &:hover {
+                color: $color-dark;
+                background-color: $color-red;
+            }
+        }
+
+        .active {
+            background-color: $color-red;
+        }
+
+        .btn-menu-icon {
+            border: none;
+            
+        }
+    }   
+}
+
+@media (min-width: 992px) {
+    .header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: "logo menulinks menuicons";
+        }
+        .header-menu {
+            text-decoration: none;
+            grid-area: menulinks;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        
+        .menu-icons {
+
+            .btn-menu-icon {
+                display: none;
+                
+            }
+        }
+    }
+}

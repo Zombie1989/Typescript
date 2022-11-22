@@ -1,0 +1,35 @@
+.sale-50 {
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    img {
+        display: none;
+    }
+    .sale-text {
+        text-align: center;
+        h1 {
+            font-size: $font-size-65;
+            font-weight: $font-weight-extrabold;
+        }
+        p {
+            font-size: $font-size-20;
+        }
+        button {
+            margin-bottom: 20px;
+            width: 200px;
+        }
+    }
+}
+
+@media (min-width: 968px) {
+    .sale-50 {
+        img {
+            display: inline-block;
+            width: 30%;
+
+        }
+    }
+}

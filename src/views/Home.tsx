@@ -6,7 +6,7 @@ import Saletwenty from '../sections/SaleOne'
 import Saleforty from '../sections/SaleTwo'
 import WebpageInfo from '../sections/WebPageInfo'
 import Footer from '../sections/Footer'
-import { FeaturedProductsContext, OnSaleProductsContext } from '../contexts/contexts'
+import { FeaturedProductsContext, OnSaleProductsContext } from '../contexts/ProductContext'
 import TopPicks from '../sections/TopPicks'
 
 

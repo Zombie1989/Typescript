@@ -6,7 +6,7 @@ import ContactsView from './views/Contacts';
 import ProductsView from './views/Products';
 import ProductDetailsView from './views/ProductDetails';
 import NotFoundView from './views/NotFound';
-import { ProductContext, FeaturedProductsContext, OnSaleProductsContext } from './contexts/contexts'
+import { ProductContext, FeaturedProductsContext, OnSaleProductsContext } from './contexts/ProductContext'
 
 function App() {
   const [products, setProducts] = useState([])
@@ -56,6 +56,6 @@ function App() {
       </ProductContext.Provider>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from 'react'
 import { User, UserRequest } from '../models/DEMOUserModel'
-import { UserProviderProps } from '../models/DEMOUserContextModel'
+import { ProductProviderProps } from '../models/ProductContextModel'
 
 export interface IUserContext {
   user: User
@@ -20,7 +20,7 @@ export interface IUserContext {
 export const UserContext = createContext<IUserContext | null>(null)
 export const useUserContext = () => { return useContext(UserContext)}
 
-const UserProvider = ({children} : UserProviderProps) => {
+const UserProvider = ({children} : ProductProviderProps) => {
   const baseUrl = 'http://localhost:5000/api/users'
   const user_default: User = {id: 0, firstName: '', lastName: '', email: ''}
   const userRequest_default: UserRequest = {firstName: '', lastName: '', email: '', password: ''}

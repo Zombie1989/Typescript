@@ -5,6 +5,7 @@ import HomeView from './views/Home';
 import ContactsView from './views/Contacts';
 import ProductsView from './views/Products';
 import ProductDetailsView from './views/ProductDetails';
+import ManageProductsView from './views/ManageProducts';
 import NotFoundView from './views/NotFound';
 import { ProductContext, FeaturedProductsContext, OnSaleProductsContext } from './contexts/ProductContext'
 
@@ -33,10 +34,10 @@ function App() {
       const result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
       setOnSale(await result.json())
     }
-    fetchOnSaleData()
+    fetchOnSaleData() 
 
 
-  }, [setProducts, setFeatured, setOnSale])  
+  }, [setProducts, setFeatured, setOnSale]) 
 
 
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path="/contacts" element={<ContactsView />} />
           <Route path="/products" element={<ProductsView />} />
           <Route path="/products/:id" element={<ProductDetailsView />} />
+          <Route path="/ManageProducts" element={<ManageProductsView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </OnSaleProductsContext.Provider>

@@ -1,7 +1,7 @@
 import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
 
-const NotFoundView =() => {
+const NotFoundView: React.FC = () => {
 
     window.top!.document.title = 'Page not found'
 

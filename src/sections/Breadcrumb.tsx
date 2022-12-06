@@ -1,6 +1,12 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const BreadcrumbSection = ({currentPage}:any) => {
+interface BreadcrumbType {
+  currentPage: string
+  parentPage?: string
+}
+
+const Breadcrumb: React.FC<BreadcrumbType> = ({currentPage, parentPage}) => {
   return (
     <section className="breadcrumb">
       <div className="container">
@@ -8,6 +14,9 @@ const BreadcrumbSection = ({currentPage}:any) => {
           <li>
             <NavLink to="/" className="fa-sharp fa-solid fa-house"></NavLink>
           </li>
+          {
+            (parentPage != undefined) ? <li><NavLink to={`${parentPage}`}></NavLink></li> : ""
+          }
           <li>{currentPage}</li>
         </ul>
       </div>
@@ -15,4 +24,4 @@ const BreadcrumbSection = ({currentPage}:any) => {
   )
 }
 
-export default BreadcrumbSection
+export default Breadcrumb

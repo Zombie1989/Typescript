@@ -1,25 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { ProductContextType, useProductContext } from '../contexts/ProductContext-2'
 import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
 import ProductDetails from '../sections/ProductDetails'
 
-const ProductDetailsView = () => {
-    const {id} = useParams()
-    const [product, setProduct] = useState({})
+const ProductDetailsView: React.FC = () => {
+    const {id} = useParams<string>()
+    const productContext = useProductContext() as ProductContextType
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
-            setProduct(await result.json())
-        }
-        fetchData()
+        productContext.get(id)
     }, [])
 
     return (
         <>
         <MainMenu />
-        <ProductDetails product={product} />
+        <ProductDetails product={productContext.product} />
         <Footer />
         </>
     )

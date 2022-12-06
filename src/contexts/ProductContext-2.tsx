@@ -1,31 +1,36 @@
 import React, { useState, useContext, createContext } from "react"
-import { Product, ProductRequest } from "../models/ProductModel"
+import { ProductItem } from "../models/ProductModel"
 import { ProductProviderProps } from "../models/ProductContextModel"
 
-export interface IProductContext {
-    product: Product
-    setProduct: React.Dispatch<React.SetStateAction<Product>>
-    productRequest: ProductRequest
-    setProductRequest: React.Dispatch<React.SetStateAction<ProductRequest>>
-    products: Product[]
-    create: (e: React.FormEvent) => void
-    get: (articleNumber: number) => void
+export interface ProductContextType {
+    product: ProductItem
+    allProducts: ProductItem[]
+    featuredProduct: ProductItem[]
+    saleOne: ProductItem[]
+    saleTwo: ProductItem[]
+    get: (articleNumber?: string) => void
     getAll: () => void
+    getFeatured: (take?: number) => void
+    getSaleOne: (take?: number) => void
+    getSaleTwo: (take?: number) => void
+    create: (e: React.FormEvent) => void
     update: (e: React.FormEvent) => void
-    deleteProduct: (articleNumber: number) => void
+    deleteProduct: (articleNumber: string) => void
+    setProduct: any
 }
 
-export const ProductContext = createContext<IProductContext | null>(null)
+export const ProductContext = createContext<ProductContextType | null>(null)
 export const useProductContext = () => { return useContext(ProductContext)}
 
-const ProductProvider = ({children} : ProductProviderProps) => {
-    const baseUrl = 'http://localhost:5000/api/products'
-    const product_default: Product = { articleNumber: 0, rating: 0, category: '', imageName: '', price: 0, name: '', }
-    const productRequest_default: ProductRequest = { articleNumber: 0, rating: 0, category: '', imageName: '', price: 0, name: '', }
+const ProductProvider: React.FC<ProductProviderProps> = ({children}) => {
+    const baseUrl:string = 'http://localhost:5000/api/products'
+    const product_default: ProductItem = { tag: '', articleNumber: '', description: '', rating: 0, category: '', imageName: '', price: 0, name: '', }
 
-    const [product, setProduct] = useState<Product>(product_default)
-    const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
-    const [products, setProducts] = useState<Product[]>([])
+    const [product, setProduct] = useState<ProductItem>(product_default)
+    const [allProducts, setAllProducts] = useState<ProductItem[]>([])
+    const [featuredProduct, setFeaturedProduct] = useState<ProductItem[]>([])
+    const [saleOne, setSaleOne] = useState<ProductItem[]>([])
+    const [saleTwo, setSaleTwo] = useState<ProductItem[]>([])
 
     const create = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -35,27 +40,58 @@ const ProductProvider = ({children} : ProductProviderProps) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(productRequest)
+            body: JSON.stringify(product)
         })
         if (result.status === 201) {
-            setProductRequest(productRequest_default)
+            setProduct(product_default)
             console.log(await result.json())
         } else {
             console.log('error')
         }
     }
 
-    const get = async (articleNumber: number) => {
-        const result = await fetch(`${baseUrl}/${articleNumber}`)
-        if (result.status === 200)
-            setProduct(await result.json())
+    const get = async (articleNumber?: string) => {
+        if (articleNumber !== undefined) {
+            const res = await fetch(baseUrl + `/article/${articleNumber}`)
+            setProduct(await res.json())
+        }
     }
 
     const getAll = async () => {
-        const result = await fetch (`${baseUrl}`)
-        if (result.status === 200)
-            setProducts(await result.json())
+        const res = await fetch (baseUrl)
+        setAllProducts(await res.json())
     }
+
+    const getFeatured = async (take: number = 0) => {
+        let url = baseUrl + `/featured`
+
+        if (take !== 0)
+            url  += `/${take}`
+
+        const res = await fetch (url)
+        setFeaturedProduct(await res.json())
+    }
+
+    const getSaleOne = async (take: number = 0) => {
+        let url = baseUrl + `/SaleOne`
+
+        if (take !== 0)
+            url  += `/${take}`
+
+        const res = await fetch (url)
+        setSaleOne(await res.json())
+    }
+
+    const getSaleTwo = async (take: number = 0) => {
+        let url = baseUrl + `/SaleTwo`
+
+        if (take !== 0)
+            url  += `/${take}`
+
+        const res = await fetch (url)
+        setSaleTwo(await res.json())
+    }
+
 
     const update = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -71,7 +107,7 @@ const ProductProvider = ({children} : ProductProviderProps) => {
             setProduct(await result.json())
     }
 
-    const deleteProduct = async (articleNumber: number) => {
+    const deleteProduct = async (articleNumber: string) => {
         const result = await fetch (`${baseUrl}/${articleNumber}`, {
             method: 'delete',
         })
@@ -80,7 +116,7 @@ const ProductProvider = ({children} : ProductProviderProps) => {
     }
 
     return (
-        <ProductContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, deleteProduct }}>
+        <ProductContext.Provider value={{ product, allProducts, get, getAll, featuredProduct, saleOne, saleTwo, getFeatured, getSaleOne, getSaleTwo, create, update, deleteProduct, setProduct }}>
             {children}
         </ProductContext.Provider>
     )

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { IProductContext, ProductContext } from '../contexts/ProductContext-2'
-import { Product } from '../models/ProductModel'
+import { ProductContextType, ProductContext } from '../contexts/ProductContext-2'
+import { ProductItem } from '../models/ProductModel'
 
 const ProductList = () => {
-    const { products, getAll, deleteProduct } = React.useContext(ProductContext) as IProductContext
+    const { allProducts, getAll, deleteProduct } = React.useContext(ProductContext) as ProductContextType
 
     useEffect(() => {
         getAll()
@@ -17,7 +17,7 @@ const ProductList = () => {
         <>
             <h3 className="display-6 mb-4">List of Products</h3>
             {
-                products.map((product: Product) => (<div onClick={() => removeProduct(product.articleNumber)} key={product.articleNumber} className="mb-3"></div>))
+                allProducts.map((product: ProductItem) => (<div onClick={() => deleteProduct(product.articleNumber)} key={product.articleNumber} className="mb-3"></div>))
             }
         </>
     )

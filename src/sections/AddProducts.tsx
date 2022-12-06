@@ -1,6 +1,15 @@
-import CreateProduct from '../components/CreateProduct'
+import { ProductItem } from '../models/ProductModel'
+import ProductCard from '../components/ProductCard'
 
-const AddProducts = ({title, products = []}:any) => {
+
+interface AddProduct {
+  title: string
+  items: ProductItem[]
+}
+
+
+const AddProducts: React.FC<AddProduct> = ({title, items = []}) => {
+
   return (
     <section className="products">
     <div className="container">
@@ -8,7 +17,7 @@ const AddProducts = ({title, products = []}:any) => {
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
 
         {
-           products.map( (product: { articleNumber: any }) => <CreateProduct key={product.articleNumber} /*products={product}*/ />)
+            items.map( product => <ProductCard key={product.articleNumber} item={product} />)
         }
 
       </div>
@@ -17,4 +26,4 @@ const AddProducts = ({title, products = []}:any) => {
   )
 }
 
-export default AddProducts
+export default AddProducts 

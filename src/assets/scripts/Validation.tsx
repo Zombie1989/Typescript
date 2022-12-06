@@ -1,3 +1,46 @@
+export const validateName = (
+    elementName: string, 
+    value: string, 
+    regEx: RegExp = /^[a-öA-Ö ]{2,30}$/
+    ) => {
+        if(value.length == 0)
+            return `${elementName} is required`
+        else if (!regEx.test (value))
+            return `${elementName} need you to use valid letters and contain ${regEx} characthers `
+        else 
+            return ''
+}
+
+export const validateText = (
+    elementName: string, 
+    value: string, 
+    minLength: number = 2
+    ) => {
+        if(value.length == 0)
+            return `${elementName} is required`
+        else if (value.length < minLength)
+            return `${elementName} need to contain ${minLength} characthers `
+        else 
+            return ''
+}
+
+export const validateEmail = (
+    elementName: string, 
+    value:string, 
+    regEx: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
+    ) => {
+        if(value.length == 0)
+            return `${elementName} is required`
+        else if (!regEx.test (value))
+            return `${elementName} need be a valid e-mail address `
+        else 
+            return ''
+}
+
+
+
+
+/*
 export const submitData = async (url:any, method:any, data:any, contentType = 'application/json')=> {
 
     const res = await fetch (url, {
@@ -68,3 +111,4 @@ const validate_comments = (value:any) => {
     else
         return null
 }
+*/

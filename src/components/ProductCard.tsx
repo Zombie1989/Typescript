@@ -1,6 +1,13 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { ProductItem } from '../models/ProductModel'
 
-const ProductCard = ({item}:any) => {
+
+interface ProductGridType {
+    item: ProductItem
+}
+
+const ProductCard: React.FC<ProductGridType> = ({item}) => {
     const addToWishList = () => {
 
     }

@@ -1,5 +1,5 @@
 import { ProductItem } from '../models/ProductModel'
-import ProductCard from '../components/ProductCard'
+import ProductManage from '../components/ProductManage'
 
 
 interface AddProduct {
@@ -17,7 +17,7 @@ const AddProducts: React.FC<AddProduct> = ({title, items = []}) => {
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
 
         {
-            items.map( product => <ProductCard key={product.articleNumber} item={product} />)
+            items.map( product => <ProductManage key={product.articleNumber} item={product} />)
         }
 
       </div>

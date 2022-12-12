@@ -52,7 +52,7 @@ const ProductProvider: React.FC<ProductProviderProps> = ({children}) => {
 
     const get = async (articleNumber?: string) => {
         if (articleNumber !== undefined) {
-            const res = await fetch(baseUrl + `/article/${articleNumber}`)
+            const res = await fetch(baseUrl + `/product/article/${articleNumber}`)
             setProduct(await res.json())
         }
     }

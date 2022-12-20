@@ -1,5 +1,7 @@
 .header {
     padding-top: 10px;
+    background: rgb(230,230,230);
+    background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(244,244,244,1) 100%);
 
     .container {
         display: grid;

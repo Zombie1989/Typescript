@@ -68,27 +68,28 @@ const ProductProvider: React.FC<ProductProviderProps> = ({children}) => {
         if (take !== 0)
             url  += `/${take}`
 
-        const res = await fetch (url)
+        const res = await fetch(url)
         setFeaturedProduct(await res.json())
+
     }
 
     const getSaleOne = async (take: number = 0) => {
-        let url = baseUrl + `/SaleOne`
+        let url = baseUrl + `/saleOne`
 
         if (take !== 0)
             url  += `/${take}`
 
-        const res = await fetch (url)
+        const res = await fetch(url)
         setSaleOne(await res.json())
     }
 
     const getSaleTwo = async (take: number = 0) => {
-        let url = baseUrl + `/SaleTwo`
+        let url = baseUrl + `/saleTwo`
 
         if (take !== 0)
             url  += `/${take}`
 
-        const res = await fetch (url)
+        const res = await fetch(url)
         setSaleTwo(await res.json())
     }
 

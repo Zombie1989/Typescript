@@ -1,5 +1,5 @@
 import { ProductItem } from '../models/ProductModel'
-import ProductManage from '../components/ProductManage'
+import ProductManage from '../components/ProductManageList'
 
 
 interface AddProduct {
@@ -11,7 +11,7 @@ interface AddProduct {
 const AddProducts: React.FC<AddProduct> = ({title, items = []}) => {
 
   return (
-    <section className="products">
+    <section className="d-flex justify-content-center mt-3">
     <div className="container">
       <h3>{title}</h3>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">

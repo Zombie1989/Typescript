@@ -4,7 +4,7 @@ import WomanRight from '../assets/images/person-sitting.png'
 
 const TopBannerSection = ({title, text}:any) => {
   return (
-    <section className="sale-50">
+    <section className="sale-50" >
         <div className="container">
             <img src={WomanLeft} alt="picture" />
             <div className="sale-text">

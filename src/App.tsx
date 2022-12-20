@@ -8,6 +8,7 @@ import ProductDetailsView from './views/ProductDetails';
 import ManageProductsView from './views/ManageProducts';
 import NotFoundView from './views/NotFound';
 import ProductProvider from './contexts/ProductContext-2';
+import UpdateProduct from './views/UpdateProduct';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products" element={<ProductsView />} />
           <Route path="/products/:id" element={<ProductDetailsView />} />
           <Route path="/ManageProducts" element={<ManageProductsView />} />
+          <Route path="/UpdateProducts/:id" element={<UpdateProduct />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
       </ProductProvider>

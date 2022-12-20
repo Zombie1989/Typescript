@@ -17,7 +17,7 @@ const ManageProducts: React.FC = () => {
     <>
       <MainMenu />
       <CreateProduct />
-      <AddProducts title={'Update'} items={allProducts} />
+      <AddProducts title={'Manage Products'} items={allProducts} />
       <Footer />
     </>
   )

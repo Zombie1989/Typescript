@@ -9,7 +9,7 @@ interface ProductManageType {
 
 
 const ProductManage: React.FC<ProductManageType> = ({item}) => {
-    const { deleteProduct, update } = React.useContext(ProductContext) as ProductContextType
+    const { deleteProduct } = React.useContext(ProductContext) as ProductContextType
 
     function refreshAndDelete() {
       window.location.reload();
@@ -23,7 +23,7 @@ const ProductManage: React.FC<ProductManageType> = ({item}) => {
             <p>tag - {item.tag}</p>
             <img src={item.imageName} alt={item.name} />
             <button type="submit" className="menu-link" onClick={refreshAndDelete} ><i className="fa-solid fa-trash-can"></i></button>
-            <NavLink to={"/updateProducts/"+item.articleNumber}>Update</NavLink>
+            <NavLink to={"/update/"+item.articleNumber}>Update</NavLink>
         </div>
     </div>
   )

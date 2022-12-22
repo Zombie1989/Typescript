@@ -103,7 +103,7 @@ const ProductProvider: React.FC<ProductProviderProps> = ({children}) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(product)
-        })
+        }) 
         if (result.status === 200)
             setProduct(await result.json())
     }

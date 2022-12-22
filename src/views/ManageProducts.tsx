@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import MainMenu from '../sections/MainMenu'
 import AddProducts from '../sections/AddProducts'
 import Footer from '../sections/Footer'
-import CreateProduct from '../components/CreateProduct'
+import CreateProduct from '../sections/CreateProduct'
 import { ProductContextType, useProductContext } from '../contexts/ProductContext-2'
 
 

@@ -26,6 +26,20 @@
     }
 }
 
+.btn-dark-small {
+    background-color: $color-dark;
+    color: $color-white;
+    font-size: $font-size-14;
+    width: 70px;
+    height: 30px;
+    border: none;
+    position: relative;
+
+    &:hover {
+        background-color: $color-dark-hover;
+    }
+}
+
 .btn-white {
     background-color: $color-white;
     color: $color-dark;

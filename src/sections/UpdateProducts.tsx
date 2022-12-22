@@ -23,7 +23,7 @@ const UpdateProduct: React.FC = () => {
   return (
     <div className="container">
       <form onSubmit={update} className="d-grid mb-5">
-        <h3 className="display-6 mb-4">Update Product</h3>
+        <h3 className="d-flex justify-content-center display-6 mb-4 mt-4">Update Product</h3>
         <input value={product.articleNumber} onChange={(e) => setProduct({...product, articleNumber: e.target.value})} type="hidden" className="form-control py-2 mb-3" />
         <input value={product.name} onChange={(e) => setProduct({...product, name: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter the name of the product..." />
         <input value={product.category} onChange={(e) => setProduct({...product, category: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter the category..." />

@@ -28,22 +28,7 @@ const MainMenuSection: React.FC = () => {
           <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass"/>
           <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare"/>
           <MenuIcon hideOnMobile={true} quantity="3" link="/wishlist" icon="fa-regular fa-heart"/>
-          <MenuIcon quantity="7" link="/shoppingcart" icon="fa-regular fa-bag-shopping"/>
-          
-
-
-
-          {/* <button className="menu-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-red">{}</span>
-            <i className="fa-regular fa-bag-shopping"></i>
-          </button>
-
-
-          <button className="menu-link-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{}</span>
-            <i className="fa-regular fa-bag-shopping"></i>
-          </button> */}
-          
+          <MenuIcon quantity="7" link="/shoppingcart" icon="fa-regular fa-bag-shopping"/>          
           <button onClick={toggleMenu} className="menu-icon btn-menu-icon"><i className="fa-regular fa-bars"></i></button> 
         </div>
       </div>

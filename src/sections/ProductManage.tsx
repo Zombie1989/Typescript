@@ -11,9 +11,9 @@ interface AddProduct {
 const AddProducts: React.FC<AddProduct> = ({title, items = []}) => {
 
   return (
-    <section className="d-flex justify-content-center mt-3">
+    <section>
     <div className="container">
-      <h3>{title}</h3>
+      <h3 className="mb-5 d-flex justify-content-center">{title}</h3>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
 
         {

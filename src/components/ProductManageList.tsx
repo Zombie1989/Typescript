@@ -18,13 +18,14 @@ const ProductManage: React.FC<ProductManageType> = ({item}) => {
 
   return (
     <div className="mt-3">
-        <div className="card-img mb-2">
-            <h5 className="card-title">{item.name}</h5>
-            <p>tag - {item.tag}</p>
-            <img src={item.imageName} alt={item.name} />
-            <button type="submit" className="menu-link" onClick={refreshAndDelete} ><i className="fa-solid fa-trash-can"></i></button>
-            <NavLink to={"/update/"+item.articleNumber}>Update</NavLink>
-        </div>
+      <div className="card-img mb-3">
+        <h5 className="card-title mb-3">{item.name}</h5>
+        <p className="mb-1">tag - {item.tag} / category - {item.category}</p>
+        <p>rating - {item.rating} / price - ${item.price}</p>
+        <img src={item.imageName} alt={item.name} />
+        <button type="submit" className="menu-link btn-dark-small" onClick={refreshAndDelete} ><i className="fa-solid fa-trash-can"></i></button>
+        <NavLink to={"/update/"+item.articleNumber}>Update</NavLink>
+      </div>
     </div>
   )
 }
